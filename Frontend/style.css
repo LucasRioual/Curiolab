@@ -1,39 +1,98 @@
-body {
-    background-color: cadetblue;
-    margin : 0;
+@font-face {
+  font-family: Roboto;
+  src: url(roboto-black.ttf);
+  
 }
 
-nav {
-    background-color: brown; 
+
+body {
+    background-color: white;
+    margin: 0px;
+}
+
+.menu {
+    
     display: flex;
-    flex-direction: row;  
+    flex-direction: row;
+    height: 100px;
+    
+
+}
+
+.block_logo{
+  
+  
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.logo{
+  height: 100%;
+  width: auto;
+  margin-left: 10px;
+}
+
+.txtLogo{
+  display: flex;
+  font-size: 30px;
+  
+  font-family: 'Roboto';
+  margin: 0px;
+  margin-left: 20px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
 
 ul {
+  
+    display: flex;
+    flex-direction: row;
     list-style-type: none;
+    width: 50%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
+    margin-left: auto;
+    margin-right: 20px;
+       
   }
 
-  li {
-    float: left;
+  li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
   }
+
+
+
+
   
   li a {
-    display: block;
-    color: white;
+    font-family: 'Roboto', sans-serif;
+    color: black;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    font-size: 25px;
   }
   
   /* Change the link color to #111 (black) on hover */
   li a:hover {
-    background-color: #111;
+    color: #9EB384;
   }
 
-  .active {
-    background-color: #04AA6D;
+  .block_prez {
+    background-color: red;
   }
+
+  .block_produit{
+    background-color: green;
+  }
+
+  .block_propos{
+    background-color: purple;
+  }
+
+  
