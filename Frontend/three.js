@@ -22,7 +22,7 @@ const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera( 15, ContainerWidth / ContainerHeight, 0.1, 1000 );
 
-camera.position.z = 12;
+camera.position.z = 10;
 camera.position.y = 0.4;
 const light = new THREE.AmbientLight( 0xFFFFF ); // soft white light
 scene.add( light );
