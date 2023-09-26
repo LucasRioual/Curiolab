@@ -25,7 +25,7 @@ const camera = new THREE.PerspectiveCamera( 15, ContainerWidth / ContainerHeight
 
 camera.position.z = 10;
 camera.position.y = 0.4;
-camera.position.x = -0.1;
+camera.position.x = 0;
 const light = new THREE.AmbientLight( 0xFFFFF ); // soft white light
 scene.add( light );
 
