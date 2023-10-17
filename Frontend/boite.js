@@ -46,10 +46,6 @@ fetch("./data.json")
  
 
 
-
-
-
-
 // Retouner à la page pricipal
 
 document.getElementById("block_logo").addEventListener("click", function(){
