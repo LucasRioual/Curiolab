@@ -17,12 +17,13 @@ const distance = 3;
 
 const scene = new THREE.Scene();
 
-scene.add(new THREE.AxesHelper());
+
 
 
 const camera = new THREE.PerspectiveCamera( 60, ContainerWidth / ContainerHeight, 0.01, 1000 );
 
 camera.position.z = 3;
+
 
 
 const points = new Float32Array(count *3);
@@ -54,7 +55,7 @@ let object;
 
 const loader = new GLTFLoader();
 
-loader.load( 'Ressource/puzzle3.glb', function ( gltf ) {object = gltf.scene; scene.add( gltf.scene );})
+loader.load( 'Ressource/wood.glb', function ( gltf ) {object = gltf.scene; scene.add( gltf.scene ); object.position.y=-0.15})
 
 
 
@@ -69,9 +70,9 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false;
 
 function animation(){
-    group.rotateY(0.0001 * Math.PI);
-    group.rotateZ(0.0001 * Math.PI);
-    group.rotateX(0.0001 * Math.PI);
+    group.rotateY(0.0002 * Math.PI);
+    group.rotateZ(0.0002 * Math.PI);
+    group.rotateX(0.0002 * Math.PI);
     renderer.render( scene, camera );
     controls.update();
     requestAnimationFrame(animation);
@@ -79,6 +80,8 @@ function animation(){
 }
 
 animation();
+
+
 
 
 

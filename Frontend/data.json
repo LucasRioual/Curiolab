@@ -1,0 +1,49 @@
+[
+      {
+        "id": 1,
+        "titre": "Ring Box",
+        "soustitre": "Puzzle mécanique en bois",
+        "description": "Boîte à énigme à 40 mouvements minimum avec engrenages, mécanismes et énigmes.",
+        "prix": 149,
+        "prixht": 99,
+        "difficulte":3,
+        "ressource":"./Ressource/RingBox"
+        
+   
+      },
+      {
+        "id": 2,
+        "titre": "Truc Box",
+        "soustitre": "Puzzle mécanique en bois",
+        "description": "Boîte à énigme de test",
+        "prix": 15,
+        "prixht": 9,
+        "difficulte":2,
+        "ressource":"./Ressource/RingBox"
+   
+      },
+      {
+        "id": 3,
+        "titre": "Troisième boîte",
+        "soustitre": "Puzzle mécanique en bois",
+        "description": "Boîte à énigme de test",
+        "prix": 15,
+        "prixht": 9,
+        "difficulte":2,
+        "ressource":"./Ressource/RingBox"
+   
+      },
+      {
+        "id": 4,
+        "titre": "Quatrième boîte",
+        "soustitre": "Puzzle mécanique en bois",
+        "description": "Boîte à énigme de test",
+        "prix": 15,
+        "prixht": 9,
+        "difficulte":2,
+        "ressource":"./Ressource/RingBox"
+   
+      }
+      
+]
+  

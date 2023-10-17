@@ -5,27 +5,29 @@
 
 
 
-var ContainerWidth = document.getElementById('objetContainer').clientWidth;
-var ContainerHeight = document.getElementById('objetContainer').clientHeight;
+ var Container = document.getElementById('objetContainer');
 
-const aspectRatio = window.innerWidth / window.innerHeight;
-const rendererHeight = ContainerWidth/aspectRatio;
+ var ContainerWidth = document.getElementById('objetContainer').offsetWidth;
+ var ContainerHeight = document.getElementById('objetContainer').offsetHeight;
 
-const canvas = document.querySelector("#webgl");
-const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true, alpha: true});
-renderer.setSize(ContainerWidth, ContainerHeight);
+ const scene = new THREE.Scene();
 
 
+ const camera = new THREE.PerspectiveCamera( 60, ContainerWidth / ContainerHeight, 0.01, 1000 );
+
+ const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+ renderer.setSize(ContainerWidth,ContainerHeight);
+
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+ Container.appendChild(renderer.domElement);
 
 
 
-const scene = new THREE.Scene();
+camera.position.z = 3;
+camera.position.y = 0.2;
+camera.position.x = 0.05;
 
-const camera = new THREE.PerspectiveCamera( 15, ContainerWidth / ContainerHeight, 0.1, 1000 );
 
-camera.position.z = 10;
-camera.position.y = 0.4;
-camera.position.x = 0;
 const light = new THREE.AmbientLight( 0xFFFFF ); // soft white light
 scene.add( light );
 
@@ -38,21 +40,32 @@ let object;
 
 const loader = new GLTFLoader();
 
-loader.load( 'Ressource/puzzle3.glb', function ( gltf ) {object = gltf.scene; scene.add( gltf.scene );})
+loader.load( 'Ressource/wood.glb', function ( gltf ) {object = gltf.scene; scene.add( gltf.scene ); animate();})
 
 
 
 
 
 function animate() {
-	requestAnimationFrame( animate );
-	object.rotation.y += 0.005;
+	object.rotation.y += 0.002;
 	//object.rotation.y =4;
-	
-     
-
 	renderer.render( scene, camera );
+	
+	requestAnimationFrame( animate );
 }
 
-animate();
+
+
+function onWindowResize() {
+	const newContainerWidth = Container.offsetWidth;
+	const newContainerHeight = Container.offsetHeight;
+  
+	camera.aspect = newContainerWidth / newContainerHeight;
+	camera.updateProjectionMatrix();
+  
+	renderer.setSize(newContainerWidth, newContainerHeight);
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  }
+  
+window.addEventListener('resize', onWindowResize);
 
