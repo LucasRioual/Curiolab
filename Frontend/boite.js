@@ -13,10 +13,10 @@ var cheminsImages = [4];
 var divs = document.getElementById("block-left").children;
 const main_img = document.getElementById("img-main");
 
-// Utilisez la variable "titre" comme bon vous semble dans votre script "page.js"
-console.log("Titre récupéré depuis l'URL : " + id);
 
-// Récupération des pièces depuis le fichier JSON
+console.log("Titre : " + id);
+
+
 fetch("./data.json")
   .then(response => response.json())
   .then(data => {
