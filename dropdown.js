@@ -2,7 +2,7 @@ const dropdownMenu = document.getElementById("dropdown-menu");
 
 const getStuff = async () => {
     try{
-      const response = await fetch('http://localhost:10411/api/stuff');
+      const response = await fetch('http://node.persil.ovh1.ec-m.fr:10411/api/stuff');
       const data = await response.json();
       console.log(data);
       data.forEach(item => {

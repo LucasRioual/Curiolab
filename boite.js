@@ -35,7 +35,7 @@ console.log("Titre : " + id);
 
 const getOneStuff = async (id) => {
   try{
-    const response = await fetch(`http://localhost:10411/api/stuff/${id}`);
+    const response = await fetch(`http://node.persil.ovh1.ec-m.fr:10411/api/stuff/${id}`);
     const piece = await response.json();
     console.log(piece);
     document.getElementById("txt-Ring").innerText = piece.titre;
