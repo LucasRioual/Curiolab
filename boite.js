@@ -1,6 +1,8 @@
-// Récupération des paramètres de l'URL
+const dropdownMenu = document.getElementById("dropdown-menu");
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
+const divs = document.getElementById("block-left").children;
+const main_img = document.getElementById("img-main");
 
 var images = [4];
 images[0] = new Image();
@@ -10,39 +12,45 @@ images[3] = new Image();
 
 var cheminsImages = [4];
 
-var divs = document.getElementById("block-left").children;
-const main_img = document.getElementById("img-main");
+const ressource = "./Ressource/RingBox";
+
+cheminsImages[0] = ressource + "/face1.JPG";
+cheminsImages[1] = ressource + "/face2.JPG";
+cheminsImages[2] = ressource + "/face3.JPG";
+cheminsImages[3] = ressource + "/face4.JPG";
+console.log(cheminsImages);
+
+for (var i = 0; i < images.length; i++) {
+  images[i].src = cheminsImages[i];
+  images[i].onload = load_image(i);
+}
+
+
+
+
+
 
 
 console.log("Titre : " + id);
 
-
-fetch("./data.json")
-  .then(response => response.json())
-  .then(data => {
-    const piece = data.find(item => item.id == id);
+const getOneStuff = async (id) => {
+  try{
+    const response = await fetch(`http://localhost:10411/api/stuff/${id}`);
+    const piece = await response.json();
+    console.log(piece);
     document.getElementById("txt-Ring").innerText = piece.titre;
-    document.getElementById("txt-titre").innerText = piece.soustitre;
+    document.getElementById("txt-titre").innerText = piece.sousTitre;
     document.getElementById("txt-description").innerText = piece.description;
     document.getElementById("txt-prix").innerText = piece.prix + " € TTC";
-    document.getElementById("txt-prix-HT").innerText = piece.prixht + " € HT";
+    document.getElementById("txt-prix-HT").innerText = piece.prix - (piece.prix * 0.2) + " € HT";
     
+  }
+  catch(error){
+    console.error(error);
+  }
+}
 
-    cheminsImages[0] = piece.ressource + "/face1.JPG";
-    cheminsImages[1] = piece.ressource + "/face2.JPG";
-    cheminsImages[2] = piece.ressource + "/face3.JPG";
-    cheminsImages[3] = piece.ressource + "/face4.JPG";
-    console.log(cheminsImages);
-
-    for (var i = 0; i < images.length; i++) {
-      images[i].src = cheminsImages[i];
-      images[i].onload = load_image(i);
-    }
-
-
-    
-
-  })
+getOneStuff(id);
  
 
 
@@ -50,9 +58,6 @@ fetch("./data.json")
 
 document.getElementById("block_logo").addEventListener("click", function(){
   window.location ="./index.html";
-  
-  
-
 });
 
 
@@ -64,6 +69,8 @@ document.getElementById("block_logo").addEventListener("click", function(){
 
 
 function load_image(index){
+  console.log("divs", divs);
+    console.log("load_image : " + images[index].src);
     divs[index].style.backgroundImage = 'url(' + images[index].src + ')';
     if(index==0){
         main_img.style.backgroundImage = 'url(' + images[index].src + ')';

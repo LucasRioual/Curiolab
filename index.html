@@ -4,22 +4,23 @@
         <meta charset="utf-8">
         <title>Curiolab</title>
         <link href="style.css" rel="stylesheet">
-        <script type="module" src="main.js"></script>
+        <script type="importmap">
+            {
+              "imports": {
+                "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+              }
+            }
+          </script>
         
         
-        
-
-
-
     </head>
     <body>
         <header>
             <nav class = "menu">
                 <div class = "block_logo">
                     <!-- <img class = "logo" src="Ressource/Logo.png"> -->
-                    <p class ="txtLogo" >Curiolab</p>
-                    
-                
+                    <p class ="txtLogo" >Curiolab</p>              
                 </div>
                 
                 <ul>
@@ -27,11 +28,6 @@
                         <a class = "txtNav" href="#">Produits </a>
                         <div id = "dropdown">
                             <ul id = "dropdown-menu" >
-                                
-                                
-                                
-                                
-        
                             </ul>
     
                         </div>
@@ -53,6 +49,7 @@
             </nav>
 
         </header>
+        <script type="module" src="dropdown.js"></script>
 
         <main>
 

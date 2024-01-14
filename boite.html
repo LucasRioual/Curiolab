@@ -4,6 +4,14 @@
         <meta charset="utf-8">
         <title>Produits</title>
         <link href="style-boite.css" rel="stylesheet">
+        <script type="importmap">
+            {
+              "imports": {
+                "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+              }
+            }
+          </script>
         <script type="module" src="boite.js"></script>
         
         
@@ -18,22 +26,15 @@
                 <div id = "block_logo">
                     <!-- <img class = "logo" src="Ressource/Logo.png"> -->
                     <p class ="txtLogo" >Curiolab</p>
-                    
-                
+      
                 </div>
                 
                 <ul>
-                    <li class = "active">
+                    <li>
                         <a class = "txtNav" href="#">Produits </a>
-                        <div class = "dropdown">
-                            <ul >
-                                <li>
-                                    <a href = "boite.html">Ring Box</a>
-                                </li>
-                                
-                                
-                                
-        
+                        <div id = "dropdown">
+                            <ul id = "dropdown-menu" >
+
                             </ul>
     
                         </div>
@@ -55,6 +56,7 @@
             </nav>
 
         </header>
+        <script type="module" src="dropdown.js"></script>
 
         <main>
             <div class="main-block">
@@ -81,16 +83,12 @@
 
                 <div id="block-left">
                     <div class="img-left">
-
                     </div>
                     <div class="img-left">
-
                     </div>
                     <div class="img-left">
-
                     </div>
                     <div class="img-left">
-
                     </div>
 
                 </div>
@@ -114,9 +112,6 @@
                             <img class="img-star" src="./Ressource/starbord.png"/>
 
                         </div>
-                        
-                        
-                        
                     </div>
                     
                     
